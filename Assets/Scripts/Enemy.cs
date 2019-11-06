@@ -8,16 +8,18 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, -speed*Time.deltaTime,Space.World);
-        transform.Rotate(1, 1, 1);
-        if (transform.position.z < -30.0f) {
-            Destroy(gameObject);
+        transform.Rotate(1f, 1f, 1f);
+        transform.Translate(0, 0, -speed * Time.deltaTime, Space.World);
+        if (transform.position.z < -25.0f)
+        {
+            GameObject.FindObjectOfType<GameController>().GameOver();
+
         }
     }
 }
